@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/pages/signIn/signIn.dart';
+import 'package:ulearning_app/common/utils/appStyles.dart';
+import 'package:ulearning_app/pages/signIn/sign_in.dart';
+import 'package:ulearning_app/pages/signUp/sign_up.dart';
 import 'package:ulearning_app/pages/welcome/welcome.dart';
 
 void main() {
@@ -13,22 +15,37 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
 
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      builder: (context, child) => MaterialApp(
+        title: "Flutter Demo",
+        theme: AppTheme.appThemeData,
+        routes: {
+          "/": (context) => Welcome(),
+          "/signIn": (context) => const SignIn(),
+          "/signUp": (context) => const SignUp(),
+        },
       ),
-      initialRoute: "/",
-      routes: {
-        "/":(context) => Welcome(),
-        "/signIn":(context) => SignIn()
-      },
     );
   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //     title: 'Flutter Demo',
+  //     theme: ThemeData(
+  //       colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+  //       useMaterial3: true,
+  //     ),
+  //     initialRoute: "/",
+  //     routes: {
+  //       "/":(context) => Welcome(),
+  //       "/signIn":(context) => SignIn()
+  //     },
+  //   );
+  // }
 }
 
 final appCount = StateProvider<int>((ref) {
@@ -111,12 +128,11 @@ class MyHomePage extends ConsumerWidget {
 }
 
 class SecondPage extends ConsumerWidget {
-
   const SecondPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-      int count = ref.watch(appCount);
+    int count = ref.watch(appCount);
 
     return Scaffold(
       appBar: AppBar(),

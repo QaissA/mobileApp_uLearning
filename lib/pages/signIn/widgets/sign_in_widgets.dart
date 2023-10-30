@@ -1,20 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ulearning_app/common/utils/appColors.dart';
-import 'package:ulearning_app/common/widgets/text_widgets.dart';
 
-AppBar buildAppbar() {
-  return AppBar(
-    bottom: PreferredSize(
-      preferredSize: const Size.fromHeight(1),
-      child: Container(
-        color: Colors.red,
-        height: 1,
-      ),
-    ),
-    centerTitle: true,
-    title: Text16Normal(text: "Login", color: AppColors.primaryText),
-  );
-}
+
 
 Widget thirdPartyLogin() {
   return Container(
@@ -32,7 +18,7 @@ Widget thirdPartyLogin() {
 
 Widget _loginButton({required String imagePath}) {
   return GestureDetector(
-    onTap: () { },
+    onTap: () {},
     child: SizedBox(
       width: 40,
       height: 40,
@@ -41,20 +27,3 @@ Widget _loginButton({required String imagePath}) {
   );
 }
 
-Widget appTextField({required String title}) {
-  return Container(
-    padding: EdgeInsets.only(left: 25, right: 25),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text14Normal(text: title),
-        Container(
-          width: 325,
-          height: 50,
-          color: Colors.red,
-        )
-
-      ],
-    ),
-  );
-}
