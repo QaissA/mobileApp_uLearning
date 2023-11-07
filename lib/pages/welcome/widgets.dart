@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
+import 'package:ulearning_app/global.dart';
 import 'package:ulearning_app/pages/signIn/sign_in.dart';
 
 Widget appOnboardingPage(BuildContext context,PageController controller,
@@ -36,7 +39,8 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
             duration: Duration(milliseconds: 600), 
             curve: Curves.easeIn);
       }else{
-        Navigator.pushNamed(context, "/signIn");
+        Global.storageService.setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_KEY, true);
+        Navigator.pushNamed(context, "/sign_in");
         // Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SignIn()));
       }
     },

@@ -9,7 +9,9 @@ Widget appTextField(
     required String iconPath,
     String hintText = "hint text",
     bool obscureText = false,
-    void Function(String value)? func}) {
+    void Function(String value)? func,
+    TextEditingController? controller,
+    }) {
   return Container(
     padding: EdgeInsets.only(left: 25, right: 25),
     child: Column(
@@ -36,6 +38,7 @@ Widget appTextField(
                 width: 280.w,
                 height: 50.h,
                 child: TextField(
+                  controller: controller,
                   onChanged: (value) {
                     func!(value);
                   },

@@ -17,4 +17,13 @@ class SignUpNotifier extends _$SignUpNotifier {
     void onEmailChange(String email) {
     state = state.copyWith(email: email);
   }
+
+  void onPasswordChange(String password) {
+    state = state.copyWith(password: password);
+  }
+
+  void onRePasswordChange(String rePassword) {
+    state = state.copyWith(rePassword: rePassword);
+  }
+
 }

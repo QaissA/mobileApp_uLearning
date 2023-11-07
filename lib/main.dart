@@ -1,12 +1,18 @@
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/routes/routes.dart';
 import 'package:ulearning_app/common/utils/appStyles.dart';
-import 'package:ulearning_app/pages/signIn/sign_in.dart';
-import 'package:ulearning_app/pages/signUp/sign_up.dart';
-import 'package:ulearning_app/pages/welcome/welcome.dart';
-
-void main() {
+// import 'package:ulearning_app/firebase_options.dart';
+import 'package:ulearning_app/global.dart';
+// import 'package:ulearning_app/pages/application/application.dart';
+// import 'package:ulearning_app/pages/signIn/sign_in.dart';
+// import 'package:ulearning_app/pages/signUp/sign_up.dart';
+// import 'package:ulearning_app/pages/welcome/welcome.dart';
+  
+Future<void> main() async {
+  await Global.init();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -22,30 +28,12 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         title: "Flutter Demo",
         theme: AppTheme.appThemeData,
-        routes: {
-          "/": (context) => Welcome(),
-          "/signIn": (context) => const SignIn(),
-          "/signUp": (context) => const SignUp(),
-        },
+        onGenerateRoute:AppPages.generateRouteSettings ,
       ),
     );
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //     title: 'Flutter Demo',
-  //     theme: ThemeData(
-  //       colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-  //       useMaterial3: true,
-  //     ),
-  //     initialRoute: "/",
-  //     routes: {
-  //       "/":(context) => Welcome(),
-  //       "/signIn":(context) => SignIn()
-  //     },
-  //   );
-  // }
+
 }
 
 final appCount = StateProvider<int>((ref) {
