@@ -1,20 +1,16 @@
-// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/routes/routes.dart';
 import 'package:ulearning_app/common/utils/appStyles.dart';
-// import 'package:ulearning_app/firebase_options.dart';
 import 'package:ulearning_app/global.dart';
-// import 'package:ulearning_app/pages/application/application.dart';
-// import 'package:ulearning_app/pages/signIn/sign_in.dart';
-// import 'package:ulearning_app/pages/signUp/sign_up.dart';
-// import 'package:ulearning_app/pages/welcome/welcome.dart';
   
 Future<void> main() async {
   await Global.init();
   runApp(const ProviderScope(child: MyApp()));
 }
+
+final GlobalKey<NavigatorState> navkey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -26,6 +22,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(
+        navigatorKey: navkey,
         title: "Flutter Demo",
         theme: AppTheme.appThemeData,
         onGenerateRoute:AppPages.generateRouteSettings ,

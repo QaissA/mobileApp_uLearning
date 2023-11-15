@@ -4,7 +4,7 @@ import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 import 'package:ulearning_app/global.dart';
-import 'package:ulearning_app/pages/signIn/sign_in.dart';
+import 'package:ulearning_app/pages/signIn/view/sign_in.dart';
 
 Widget appOnboardingPage(BuildContext context,PageController controller,
     {String imagePath = "assets/images/reading.png",

@@ -2,10 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ulearning_app/common/routes/app_routes_names.dart';
 import 'package:ulearning_app/global.dart';
-import 'package:ulearning_app/pages/application/application.dart';
-import 'package:ulearning_app/pages/signIn/sign_in.dart';
-import 'package:ulearning_app/pages/signUp/sign_up.dart';
-import 'package:ulearning_app/pages/welcome/welcome.dart';
+import 'package:ulearning_app/pages/application/view/application.dart';
+import 'package:ulearning_app/pages/home/view/home.dart';
+import 'package:ulearning_app/pages/signIn/view/sign_in.dart';
+import 'package:ulearning_app/pages/signUp/view/sign_up.dart';
+import 'package:ulearning_app/pages/welcome/view/welcome.dart';
 
 class AppPages {
   static List<RouteEntity> routes() {
@@ -14,6 +15,7 @@ class AppPages {
       RouteEntity(path: AppRoutesNames.SIGN_IN, page: const SignIn()),
       RouteEntity(path: AppRoutesNames.SIGN_UP, page: const SignUp()),
       RouteEntity(path: AppRoutesNames.Application, page: const Application()),
+      RouteEntity(path: AppRoutesNames.HOME, page: const Home()),
     ];
   }
 

@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ulearning_app/common/global_loader/global_loader.dart';
 import 'package:ulearning_app/common/widgets/popup_messages.dart';
 import 'package:ulearning_app/pages/signUp/notifier/signup_notifier.dart';
+import 'package:ulearning_app/pages/signUp/repo/sign_up_repo.dart';
 
 class SignUpController {
   final WidgetRef ref;
@@ -59,8 +60,9 @@ class SignUpController {
     var context = Navigator.of(ref.context);
 
     try {
-      final credential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: state.email, password: state.password);
+      // final credential = await FirebaseAuth.instance
+      //     .createUserWithEmailAndPassword(email: state.email, password: state.password);
+      final credential = await SignUpRepo.firebaseSignUp(email, password);
 
       if (kDebugMode) {
         print(credential);

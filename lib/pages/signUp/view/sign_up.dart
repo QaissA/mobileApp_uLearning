@@ -3,12 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/global_loader/global_loader.dart';
 import 'package:ulearning_app/common/utils/appColors.dart';
+import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/app_bar.dart';
 import 'package:ulearning_app/common/widgets/app_textFields.dart';
 import 'package:ulearning_app/common/widgets/button_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
 import 'package:ulearning_app/pages/signUp/notifier/signup_notifier.dart';
-import 'package:ulearning_app/pages/signUp/signup_controller.dart';
+import 'package:ulearning_app/pages/signUp/controller/signup_controller.dart';
 
 class SignUp extends ConsumerStatefulWidget {
   const SignUp({super.key});
@@ -58,7 +59,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                           //user name input
                           appTextField(
                               title: "Username",
-                              iconPath: "assets/icons/user.png",
+                              iconPath: ImageRes.user,
                               hintText: "Enter your Username",
                               func: (value) => ref
                                   .read(signUpNotifierProvider.notifier)
@@ -69,7 +70,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                           //input text of the login form Email
                           appTextField(
                             title: "Email",
-                            iconPath: "assets/icons/user.png",
+                            iconPath: ImageRes.user,
                             hintText: "Enter your Email",
                             func: (value) => ref
                                 .read(signUpNotifierProvider.notifier)
@@ -81,7 +82,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                           //input for password
                           appTextField(
                               title: "password",
-                              iconPath: "assets/icons/lock.png",
+                              iconPath: ImageRes.lock,
                               hintText: "Enter your Password",
                               obscureText: true,
                               func: (value) => ref
@@ -93,7 +94,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                           //input for confirming password
                           appTextField(
                               title: "Confirm Password",
-                              iconPath: "assets/icons/lock.png",
+                              iconPath: ImageRes.lock,
                               hintText: "Enter your Confirm password",
                               obscureText: true,
                               func: (value) => ref

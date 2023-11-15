@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:ulearning_app/common/utils/appColors.dart';
 
 Widget Text24Normal(
-    {required String text, Color color = AppColors.primaryText}) {
+    {required String text, Color color = AppColors.primaryText, FontWeight weight = FontWeight.normal}) {
   return Text(
     text,
     textAlign: TextAlign.center,
-    style: TextStyle(color: color, fontSize: 24, fontWeight: FontWeight.normal),
+    style: TextStyle(color: color, fontSize: 24, fontWeight: weight),
   );
 }
 

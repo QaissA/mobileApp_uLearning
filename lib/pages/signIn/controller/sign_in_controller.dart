@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -8,17 +10,20 @@ import 'package:ulearning_app/common/global_loader/global_loader.dart';
 import 'package:ulearning_app/common/utils/constants.dart';
 import 'package:ulearning_app/common/widgets/popup_messages.dart';
 import 'package:ulearning_app/global.dart';
-import 'package:ulearning_app/pages/application/application.dart';
+import 'package:ulearning_app/main.dart';
 import 'package:ulearning_app/pages/signIn/notifier/sign_in_notifier.dart';
+import 'package:ulearning_app/pages/signIn/repo/sign_in_repo.dart';
 
 class SignInController {
-  WidgetRef ref;
-  SignInController({required this.ref});
+
+  // WidgetRef ref;
+
+  SignInController();
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  Future<void> handleSignIn() async {
+  Future<void> handleSignIn(WidgetRef ref) async {
     var state = ref.read(signInNotifierProvider);
 
     String email = state.email;
@@ -46,14 +51,11 @@ class SignInController {
     }
 
     ref.read(appLoaderProvider.notifier).setLoaderValue(true);
-    print(1);
     try {
-      print(2);
-      final credential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+      
+      final credential = await SignInRepo.firebaseSignIn(email, password);
 
       var user = credential.user;
-      print(3);
       if (user == null) {
         toastInfo("User not found");
       }
@@ -106,19 +108,16 @@ class SignInController {
 
   void asyncPostAllData(LoginRequestEntity loginRequestEntity) {
     try {
-      var navigator = Navigator.of(ref.context);
+      // var navigator = Navigator.of(ref.context);
 
       Global.storageService
-          .setString(AppConstants.STORAGE_USER_PROFILE_KEY, "123");
+          .setString(AppConstants.STORAGE_USER_PROFILE_KEY, jsonEncode({
+            "name" : "qaissa", "email" : "qaissabdelhamid@gmail.com", "age": 27
+          }));
       Global.storageService
           .setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
 
-      navigator.pushNamedAndRemoveUntil("/application", (route) => false);
-      // navigator.push(
-      //   MaterialPageRoute(builder: (BuildContext context) =>  Scaffold(appBar: AppBar(), body: const Application(),))
-      // );
-
-      // navigator.pushNamed("/application");
+      navkey.currentState?.pushNamedAndRemoveUntil("/application", (route) => false);
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());

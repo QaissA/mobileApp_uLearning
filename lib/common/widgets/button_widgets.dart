@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/appColors.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/pages/signUp/sign_up.dart';
+import 'package:ulearning_app/pages/signUp/view/sign_up.dart';
 
 Widget appButton({
   String text="text here", 

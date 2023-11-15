@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/appColors.dart';
+import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
+import 'package:ulearning_app/pages/home/view/home.dart';
 
 var bottomTabs = <BottomNavigationBarItem>[
   BottomNavigationBarItem(
       icon: _bottomContainer(
           width: 15,
           height: 15,
-          imagePath: "assets/icons/home.png",
+          imagePath: ImageRes.home,
           color: AppColors.primaryFourElementText),
       activeIcon: _bottomContainer(
           width: 15,
           height: 15,
-          imagePath: "assets/icons/home.png",
+          imagePath: ImageRes.home,
           color: AppColors.primaryElement),
       backgroundColor: Colors.white,
       label: "Home"),
@@ -21,48 +23,48 @@ var bottomTabs = <BottomNavigationBarItem>[
       icon: _bottomContainer(
           width: 15,
           height: 15,
-          imagePath: "assets/icons/search2.png",
+          imagePath: ImageRes.search,
           color: AppColors.primaryFourElementText),
       activeIcon: _bottomContainer(
           width: 15,
           height: 15,
-          imagePath: "assets/icons/search2.png",
+          imagePath: ImageRes.search,
           color: AppColors.primaryElement),
       label: "Search"),
   BottomNavigationBarItem(
       icon: _bottomContainer(
           width: 15,
           height: 15,
-          imagePath: "assets/icons/play-circle1.png",
+          imagePath: ImageRes.play,
           color: AppColors.primaryFourElementText),
       activeIcon: _bottomContainer(
           width: 15,
           height: 15,
-          imagePath: "assets/icons/play-circle1.png",
+          imagePath: ImageRes.play,
           color: AppColors.primaryElement),
       label: "play"),
   BottomNavigationBarItem(
       icon: _bottomContainer(
           width: 15,
           height: 15,
-          imagePath: "assets/icons/message-circle.png",
+          imagePath: ImageRes.message,
           color: AppColors.primaryFourElementText),
       activeIcon: _bottomContainer(
           width: 15,
           height: 15,
-          imagePath: "assets/icons/message-circle.png",
+          imagePath: ImageRes.message,
           color: AppColors.primaryElement),
       label: "message"),
         BottomNavigationBarItem(
       icon: _bottomContainer(
           width: 15,
           height: 15,
-          imagePath: "assets/icons/person2.png",
+          imagePath: ImageRes.profilPhoto,
           color: AppColors.primaryFourElementText),
       activeIcon: _bottomContainer(
           width: 15,
           height: 15,
-          imagePath: "assets/icons/person2.png",
+          imagePath: ImageRes.profilPhoto,
           color: AppColors.primaryElement),
       label: "Profile"),
 ];
@@ -73,7 +75,7 @@ Widget _bottomContainer({
   imagePath = "assets/icons/home.png",
   Color color = AppColors.primaryElement,
 }) {
-  return Container(
+  return SizedBox(
     width: width.w,
     height: height.h,
     child: appImageWithColor(imagePath: imagePath, color: color),
@@ -83,11 +85,11 @@ Widget _bottomContainer({
 
 Widget appScreens(int index) {
   List<Widget> screens=[
-    Center( child: appImage(imagePath: "assets/icons/home.png", width: 90.w, height: 90.h) ,),
-    Center( child: appImage(imagePath: "assets/icons/search2.png", width: 90.w, height: 90.h) ,),
-    Center( child: appImage(imagePath: "assets/icons/play-circle1.png", width: 90.w, height: 90.h) ,),
-    Center( child: appImage(imagePath: "assets/icons/message-circle.png", width: 90.w, height: 90.h) ,),
-    Center( child: appImage(imagePath: "assets/icons/person2.png", width: 90.w, height: 90.h) ,),
+    const Home(),
+    Center( child: appImage(imagePath: ImageRes.search, width: 90.w, height: 90.h) ,),
+    Center( child: appImage(imagePath:  ImageRes.play, width: 90.w, height: 90.h) ,),
+    Center( child: appImage(imagePath: ImageRes.message, width: 90.w, height: 90.h) ,),
+    Center( child: appImage(imagePath: ImageRes.profilPhoto, width: 90.w, height: 90.h) ,),
   ];
 
   return screens[index];
