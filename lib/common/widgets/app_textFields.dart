@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/utils/appColors.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/common/widgets/image_widgets.dart';
 import 'package:ulearning_app/common/widgets/text_widgets.dart';
@@ -11,13 +12,16 @@ Widget appTextField({
   bool obscureText = false,
   void Function(String value)? func,
   TextEditingController? controller,
+  double width = 280,
+  double height = 0,
+  double topPadding = 15,
 }) {
   return Container(
     padding: EdgeInsets.only(left: 25, right: 25),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text14Normal(text: title),
+        Text14Normal(text: title, color:  AppColors.primaryThreeElementText, isCenter: true,),
         SizedBox(
           height: 5.h,
         ),
@@ -33,7 +37,10 @@ Widget appTextField({
                 child: appImage(imagePath: iconPath),
               ),
               //input of the textfield
-              appTextFieldOnly(hintText: hintText, func: func, controller: controller, obscureText: obscureText  )
+              // Container(
+              //   child: TextField(),
+              // ),
+              appTextFieldOnly(hintText: hintText, func: func, controller: controller, obscureText: obscureText),
             ],
           ),
         )
@@ -46,7 +53,7 @@ Widget appTextFieldOnly(
     {TextEditingController? controller,
     String hintText = "hint text",
     double width = 280,
-    double height = 0,
+    double height = 50,
     double topPadding = 15,
     void Function(String value)? func,
     bool obscureText = false}) {

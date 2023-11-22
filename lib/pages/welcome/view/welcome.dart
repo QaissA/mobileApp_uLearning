@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ulearning_app/common/utils/image_res.dart';
 import 'package:ulearning_app/pages/welcome/notifier/welcome_notifier.dart';
 import 'package:ulearning_app/pages/welcome/view/widgets/widgets.dart';
 
@@ -34,21 +35,21 @@ class Welcome extends ConsumerWidget {
                   children: [
                     //first page
                     appOnboardingPage(context, _pageController,
-                        imagePath: "assets/images/reading.png",
+                        imagePath: ImageRes.imgWelcome1,
                         title: "First See Learning",
                         subtitle:
                             "Forget about the paper, now Learning all in one place",
                         index: 1),
                     //second page
                     appOnboardingPage(context, _pageController,
-                        imagePath: "assets/images/man.png",
+                        imagePath: ImageRes.imgWelcome2,
                         title: "Connect With Everyone",
                         subtitle:
                             "Always keep in touch with your tutor and friends. Lets get connected",
                         index: 2),
                     //third page
                     appOnboardingPage(context, _pageController,
-                        imagePath: "assets/images/boy.png",
+                        imagePath: ImageRes.imgWelcome3,
                         title: "Always Fascinated Learning",
                         subtitle:
                             "Anywhere, Anytime. the time is at your discretion. So study wherever u can.",

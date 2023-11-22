@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/utils/appColors.dart';
 
 Widget Text24Normal(
@@ -10,23 +11,63 @@ Widget Text24Normal(
   );
 }
 
-Widget Text16Normal(
-    {required String text,
-    Color color = AppColors.primarySecondaryElementText}) {
-  return Text(
+// Widget Text16Normal(
+//     {required String text,
+//     Color color = AppColors.primarySecondaryElementText}) {
+//   return Text(
+//     text,
+//     textAlign: TextAlign.center,
+//     style: TextStyle(color: color, fontSize: 16, fontWeight: FontWeight.normal),
+//   );
+// }
+
+class Text16Normal extends StatelessWidget {
+  final String text;
+  final Color color;
+  final FontWeight fontWeight;
+  const Text16Normal({super.key, this.text="", this.color= AppColors.primarySecondaryElementText, this.fontWeight= FontWeight.normal});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
     text,
     textAlign: TextAlign.center,
-    style: TextStyle(color: color, fontSize: 16, fontWeight: FontWeight.normal),
+    style: TextStyle(color: color, fontSize: 16.sp, fontWeight: fontWeight),
   );
+  }
 }
 
-Widget Text14Normal(
-    {required String text, Color color = AppColors.primaryThreeElementText, bool isCenter=true}) {
-  return Text(
+class Text12Normal extends StatelessWidget {
+  final String text;
+  final Color color;
+  final FontWeight fontWeight;
+  const Text12Normal({super.key, this.text="", this.color= AppColors.primarySecondaryElementText, this.fontWeight= FontWeight.normal});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+    text,
+    textAlign: TextAlign.center,
+    style: TextStyle(color: color, fontSize: 12.sp, fontWeight: fontWeight),
+  );
+  }
+}
+
+class Text14Normal extends StatelessWidget {
+  final String text;
+  final Color color;
+  final bool isCenter;
+
+  const Text14Normal({super.key, required this.text, required this.color, required this.isCenter});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
     text,
     textAlign: isCenter ? TextAlign.center : TextAlign.start,
-    style: TextStyle(color: color, fontSize: 14, fontWeight: FontWeight.normal),
+    style: TextStyle(color: color, fontSize: 14.sp, fontWeight: FontWeight.normal),
   );
+  }
 }
 
 Widget TextUnderline({String text = "", Color color = AppColors.primaryText, Color underlineColors = AppColors.primaryText}) {
@@ -39,7 +80,7 @@ Widget TextUnderline({String text = "", Color color = AppColors.primaryText, Col
         decoration: TextDecoration.underline,
         decorationColor: underlineColors,
         fontWeight: FontWeight.normal,
-        fontSize: 12
+        fontSize: 12.sp
         ),
     ),
   );

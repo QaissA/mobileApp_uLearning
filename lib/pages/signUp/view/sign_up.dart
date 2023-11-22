@@ -37,95 +37,101 @@ class _SignUpState extends ConsumerState<SignUp> {
     return Container(
       color: Colors.white,
       child: SafeArea(
-          child: Scaffold(
-              appBar: buildAppbar(title: "Sign Up"),
-              backgroundColor: Colors.white,
-              body: loader == false
-                  ? SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 30.h,
-                          ),
-                          Center(
-                              child: Text14Normal(
-                                  text:
-                                      "Enter your details below & free sign up")),
-                          SizedBox(
-                            height: 50.h,
-                          ),
-                          //user name input
-                          appTextField(
-                              title: "Username",
-                              iconPath: ImageRes.user,
-                              hintText: "Enter your Username",
-                              func: (value) => ref
-                                  .read(signUpNotifierProvider.notifier)
-                                  .onUsernameChange(value)),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          //input text of the login form Email
-                          appTextField(
-                            title: "Email",
-                            iconPath: ImageRes.user,
-                            hintText: "Enter your Email",
-                            func: (value) => ref
-                                .read(signUpNotifierProvider.notifier)
-                                .onEmailChange(value),
-                          ),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          //input for password
-                          appTextField(
-                              title: "password",
-                              iconPath: ImageRes.lock,
-                              hintText: "Enter your Password",
-                              obscureText: true,
-                              func: (value) => ref
-                                  .read(signUpNotifierProvider.notifier)
-                                  .onPasswordChange(value)),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          //input for confirming password
-                          appTextField(
-                              title: "Confirm Password",
-                              iconPath: ImageRes.lock,
-                              hintText: "Enter your Confirm password",
-                              obscureText: true,
-                              func: (value) => ref
-                                  .read(signUpNotifierProvider.notifier)
-                                  .onRePasswordChange(value)),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          Container(
-                              margin: const EdgeInsets.only(left: 25),
-                              child: Text14Normal(
-                                  isCenter: false,
-                                  text:
-                                      "By creating an account you have agree with our them & condition")),
-                          SizedBox(
-                            height: 100.h,
-                          ),
-                          //Login button
-                          Center(
-                              child: appButton(
-                                  text: "Sign Up",
-                                  func: () => _controller.handleSignUp())),
-                        ],
+        child: Scaffold(
+          appBar: buildAppbar(title: "Sign Up"),
+          backgroundColor: Colors.white,
+          body: loader == false
+              ? SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 30.h,
                       ),
-                    )
-                  : const Center(
-                      child: CircularProgressIndicator(
-                        backgroundColor: Colors.blue,
-                        color: AppColors.primaryElement,
+                      const Center(
+                          child: Text14Normal(
+                        text: "Enter your details below & free sign up",
+                        color: AppColors.primaryThreeElementText,
+                        isCenter: true,
+                      )),
+                      SizedBox(
+                        height: 50.h,
                       ),
-                    ),),),
+                      //user name input
+                      appTextField(
+                          title: "Username",
+                          iconPath: ImageRes.user,
+                          hintText: "Enter your Username",
+                          func: (value) => ref
+                              .read(signUpNotifierProvider.notifier)
+                              .onUsernameChange(value)),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      //input text of the login form Email
+                      appTextField(
+                        title: "Email",
+                        iconPath: ImageRes.user,
+                        hintText: "Enter your Email",
+                        func: (value) => ref
+                            .read(signUpNotifierProvider.notifier)
+                            .onEmailChange(value),
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      //input for password
+                      appTextField(
+                          title: "password",
+                          iconPath: ImageRes.lock,
+                          hintText: "Enter your Password",
+                          obscureText: true,
+                          func: (value) => ref
+                              .read(signUpNotifierProvider.notifier)
+                              .onPasswordChange(value)),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      //input for confirming password
+                      appTextField(
+                          title: "Confirm Password",
+                          iconPath: ImageRes.lock,
+                          hintText: "Enter your Confirm password",
+                          obscureText: true,
+                          func: (value) => ref
+                              .read(signUpNotifierProvider.notifier)
+                              .onRePasswordChange(value)),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      Container(
+                          margin: const EdgeInsets.only(left: 25),
+                          child: const Text14Normal(
+                            isCenter: false,
+                            text:
+                                "By creating an account you have agree with our them & condition",
+                            color: AppColors.primaryThreeElementText,
+                          )),
+                      SizedBox(
+                        height: 100.h,
+                      ),
+                      //Login button
+                      Center(
+                          child: appButton(
+                              text: "Sign Up",
+                              func: () => _controller.handleSignUp())),
+                    ],
+                  ),
+                )
+              : const Center(
+                  child: CircularProgressIndicator(
+                    backgroundColor: Colors.blue,
+                    color: AppColors.primaryElement,
+                  ),
+                ),
+        ),
+      ),
     );
   }
 }

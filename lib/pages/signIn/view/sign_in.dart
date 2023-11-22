@@ -22,8 +22,6 @@ class SignIn extends ConsumerStatefulWidget {
 class _SignInState extends ConsumerState<SignIn> {
   late SignInController _controller;
 
-
-
   @override
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
@@ -53,9 +51,12 @@ class _SignInState extends ConsumerState<SignIn> {
                       SizedBox(
                         height: 15.h,
                       ),
-                      Center(
+                      const Center(
                           child: Text14Normal(
-                              text: "Or use your email account to login")),
+                        text: "Or use your email account to login",
+                        color: AppColors.primaryThreeElementText,
+                        isCenter: true,
+                      )),
                       SizedBox(
                         height: 50.h,
                       ),

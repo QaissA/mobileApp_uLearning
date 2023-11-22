@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/widgets/app_shadow.dart';
 import 'package:ulearning_app/pages/application/notifier/application_nav_notifier.dart';
 import 'package:ulearning_app/pages/application/widgets/widgets.dart';
+import 'package:ulearning_app/pages/home/view/widgets/home_widgets.dart';
 
 
 class Application extends ConsumerWidget {
